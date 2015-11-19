@@ -1,0 +1,38 @@
+<header>
+	<div class="container">
+		<h1>Dungeons &amp; Data</h1>
+		<h2>Weapons</h2>
+	</div>
+</header>
+<div class="container">
+	<div class="container col-xs-12 searchbar">
+		<input type="text" placeholder="Search Weapons" class="right" name="query" ng-model="query">
+		<i class="fa fa-search right icon"></i>
+	</div>
+
+	<table class="table">
+		<tr>
+			<th><a href="" ng-click="sortCriteria = 'name'">Weapon Name</a></th>
+			<th><a href="" ng-click="sortCriteria = 'type'">Type</a></th>
+			<th><a href="" ng-click="sortCriteria = 'range'">Range</a></th>
+			<th class="righttext"><a href="" ng-click="sortCriteria = 'damage'">Damage</a></th>
+			<th><a href="" ng-click="sortCriteria = 'damage_type'">Type</a></th>
+			<th>Details</th>
+		</tr>
+		<tr ng-repeat="weapon in weapons | orderBy: sortCriteria | filter:query">
+			<td>{{weapon.name}}</td>
+			<td>{{weapon.type}}</td>
+			<td>{{weapon.range}}</td>
+			<td class="righttext">{{weapon.damage}}</td>
+			<td>{{weapon.damage_type}}</td>
+			<td><a href="" ng-show="!seeMore" ng-click="seeMore = seeMore === false ? true: false">Show Details</a><span ng-show="seeMore">
+				<span class="bold">Hands: </span>{{weapon.hands}}<br>
+				<span class="bold">Cost: </span>{{weapon.cost}} cp<br>
+				<span class="bold">Weight: </span>{{weapon.weight}} lb<br>
+				<span class="bold">Properties: </span><br>
+				<span class="indent" ng-repeat="p in weapon.properties">- {{p}} <br></span>
+				<a href="" ng-show="seeMore" ng-click="seeMore = seeMore === false ? true: false">Hide Details</a></span>
+			</td>
+		</tr>
+	</table>
+</div>

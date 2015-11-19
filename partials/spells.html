@@ -1,0 +1,67 @@
+<header>
+	<div class="container">
+		<h1>Dungeons &amp; Data</h1>
+		<h2>Spells</h2>
+	</div>
+</header>
+<div class="container">
+	<div class="container col-xs-12 searchbar">
+		<input type="text" placeholder="Search Spells" class="right" name="query" ng-model="query">
+		<i class="fa fa-search right icon"></i>
+	</div>
+	<div class="container col-xs-12 searchbar">
+		<form class="center" name="classRestrict">
+			<p class="center">Browse spells by class:</p>
+			<a ng-click="filterclass = ''">All</a> |
+			<a ng-click="filterclass = 'bard'">Bard</a> |
+			<a ng-click="filterclass = 'cleric'">Cleric</a> |
+			<a ng-click="filterclass = 'druid'">Druid</a> |
+			<a ng-click="filterclass = 'paladin'">Paladin</a> |
+			<a ng-click="filterclass = 'ranger'">Ranger</a> |
+			<a ng-click="filterclass = 'sorcerer'">Sorcerer</a> |
+			<a ng-click="filterclass = 'warlock'">Warlock</a> |
+			<a ng-click="filterclass = 'wizard'">Wizard</a>
+			<br>
+		</form>
+	</div>
+	<table class="table">
+		<tr>
+			<th><a href="" ng-click="sortCriteria = 'name'">Spell Name</a></th>
+			<th><a href="" ng-click="sortCriteria = 'level'">Level</a></th>
+			<th><a href="" ng-click="sortCriteria = 'school'">School</a></th>
+			<th>Details</th>
+
+			
+		</tr>
+		<tr ng-repeat="spell in spells | orderBy: sortCriteria | filter:filterclass | filter:query">
+			<td>{{spell.name}}</td>
+			<td>{{spell.level}}</td>
+			<td>{{spell.school}}</td>
+			<td><a href="" ng-show="!seeMore" ng-click="seeMore = seeMore === false ? true: false">Show Details</a><span ng-show="seeMore">
+				<span ng-show="spell.ritual" class="bold">Ritual<br></span>
+				<span class="bold">Range: </span>{{spell.range}}<br>
+				<span class="bold">Components: </span>{{spell.components}}<br>
+				<span class="bold">Cast Time: </span>{{spell.cast}}<br>
+				<span class="bold">Duration: </span>{{spell.duration}}<br>
+				<span class="bold">Class(es): </span><br><span class="indent" ng-repeat="cl in spell.class">{{cl}}<br></span><br>
+				<span class="indent" ng-repeat="line in spell.description">{{line}}<br></span>
+				<a href="" ng-show="seeMore" ng-click="seeMore = seeMore === false ? true: false">Hide Details</a></span>
+			</td>
+		</tr>
+	</table>
+<!--
+Structure copy/paste
+  {
+    "name": "",
+    "level": ,
+    "school": "",
+    "ritual": ,
+    "range": "",
+    "components": "",
+    "cast": "",
+    "duration": "",
+    "description": [""],
+    "class": [""]
+  },
+-->
+</div>

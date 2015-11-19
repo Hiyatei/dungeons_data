@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DungeonApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="img/d20.png">
+	<title>D&amp;D 5e Quick Ref</title>
+
+	<link rel="stylesheet" href="css/main.css"> <!-- includes bootstrap -->
+
+	<!-- load angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+</head>
+<body>
+
+<nav>
+	<ul class="container list-unstyled list-inline">
+		<li><a class="menubutton" ui-sref="home">Home</a></li>
+		<li><a class="menubutton" ui-sref="weapons">Weapons</a></li>
+		<li><a class="menubutton" ui-sref="spells">Spells</a></li>
+		<!-- Soon
+		<li><a class="menubutton" ui-sref="feats">Feats</a></li>
+		<li><a class="menubutton" ui-sref="armor">Armor</a></li>
+		-->
+		<li class="grey">Feats</li>
+		<li class="grey">Armor</li>
+		<li class="grey">Other Items</li>
+		<li class="grey">Class Features</li>
+	</ul>
+</nav>
+
+<main>
+	<div ui-view></div>
+</main>
+
+<footer>
+	<div class="container">
+		<p>Background image by <a class="menubutton" href="https://www.flickr.com/photos/qubodup/3201502892" target="_blank">Iwan Gabovitch</a></p>
+	</div>
+</footer>
+
+<!-- load external libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script src="lib/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
+
+<!-- load app script -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
